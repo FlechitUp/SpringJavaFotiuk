@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head lang="en" th:fragment="header-conf (pageCss)">
+  	
+  	<meta charset="UTF-8"/>
+  	<title th:include=":: #pageTitle">Story Telling </title>
+  	<link rel="stylesheet" type="text/css" th:href="@{${pageCss}}"/>
+  	
+	<!-- Favicons -->	 
+	<link href="/img/favicon.png" rel="icon">
+	<link href="/img/apple-touch-icon.png" rel="apple-touch-icon">
+	
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+	
+	<!-- Bootstrap CSS File -->
+	<link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	
+	<!-- Libraries CSS Files -->
+	
+	<link href="/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	
+	<link href="/lib/animate/animate.min.css" rel="stylesheet">
+	
+	<link href="/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+	<link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+	<link href="/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+		 	
+	
+	<link href="/js/main.js" rel="script" />
+</head>
+
+<body>
+<!--==========================
+  Header
+  ============================-->
+  <div th:fragment="header" class="fixed-top">  
+    <div class="container">
+
+      <div class="logo float-left">
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <h1 class="text-light"><a href="#header"><span>NewBiz</span></a></h1> -->
+        <a href="#intro" class="scrollto"><img src="img/logo.png" alt="" class="img-fluid"></a>
+      </div>
+
+      <nav class="main-nav float-right d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="#intro">Home</a></li>             
+          <li><a href="#portfolio">Last Images</a></li>
+
+        
+          <li><a href="#team">Artist</a></li>   
+          <li th:classappend="${#httpServletRequest.getRequestURI()  == '/' ? 'active':''}" >
+          <a th:href="@{/register}">Register</a></li>       
+          <li th:classappend="${#httpServletRequest.getRequestURI()  == '/' ? 'active':''}">
+          <a th:href="@{/login}">Log in</a></li>
+        </ul>
+      </nav><!-- .main-nav -->
+      
+    </div>
+  </div><!-- #header -->
+ 
+ </body>
+ </html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en" th:include="fragments/header :: header-conf (pageCss= '/css/main.css')">
+<meta charset="UTF-8">
+<title>Register</title>
+
+<link href="/css/logim.css" rel="stylesheet" />
+
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+</head>
+<body>
+ <div th:replace="fragments/header :: header"></div>
+
+	<div class="sidenav">
+		<div class="login-main-text">
+			<h3>
+				Fotiuk<br> Register
+			</h3>
+			<p>Login or register from here to access.</p>
+		</div>
+	</div>
+	<div class="main">
+		<div class="col-md-6 col-sm-12">
+			<div class="login-form">
+				<div th:if="${messageWarn != null}" th:text="${messageWarn}"
+					class="my-1 text-center text-danger"></div>
+				<form th:method="post" th:action="@{/users}" role="form" th:object="${newUser}">
+					<div class="form-group">
+						<label>User Name</label> <input th:name="username" type="text"
+							class="form-control" placeholder="User Name"
+							th:field="*{username}">
+					</div>
+					<div class="form-group">
+						<label>E-mail</label> <input th:name="mail" type="email"
+							class="form-control" placeholder="email" th:field="*{mail}">
+					</div>
+					<div class="form-group">
+						<label>Password</label> <input th:name="password" type="password"
+							class="form-control" placeholder="Password"
+							th:field="*{password}" required>
+					</div>
+
+					<button type="submit" class="btn btn-secondary">Register</button>
+					<!--button type="submit" class="btn btn-black">Login</button-->
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</html>
